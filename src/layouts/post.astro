@@ -1,0 +1,50 @@
+---
+import Footer from '../components/footer.astro';
+import Header from '../components/header.astro';
+
+export interface Props {
+	title: string;
+    description: string;
+    tags: string,
+    author: string
+}
+
+const { title, description, tags, author } = Astro.props.frontmatter || Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/icon.png" />
+		<meta name="generator" content={Astro.generator} />
+        <meta name="tags" content={tags} />
+        <meta name="description" content={description} />
+        <meta name="author" content={author} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description}>
+        <meta property="og:url" content={"https://marcusfelix.page.dev" + Astro.props.url} />
+        <meta property="og:image" content={"https://marcusfelix.page.dev/posts/caster.jpg"} />
+        <meta property="og:type" content="website" />
+		<title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+        <div class={"container mx-auto flex flex-col gap-4 px-4 max-w-2xl"}>
+            <Header/>
+            <div class="prose prose-invert prose-lg prose-p:text-red-300">
+                <slot />
+            </div>
+            <Footer/>
+        </div>
+	</body>
+</html>
+
+<style>
+    body {
+		@apply bg-red-600 text-white
+	}
+</style>

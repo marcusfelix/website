@@ -1,0 +1,20 @@
+---
+export interface Props {
+	data: {
+		title: string;
+		cover: string;
+		date: string;
+		href: string;
+	};
+	href: string;
+}
+
+const { data, href } = Astro.props;
+---
+
+<a href={href} class="flex flex-col gap-2">
+	<div class=`aspect-square bg-white/20 bg-cover rounded-2xl p-2` style={{ "backgroundImage": `url('${data.cover}')`}}>
+		<span class="bg-black text-white text-xs px-3 py-1 rounded-full">{data.date}</span>
+	</div>
+	<h3 class="text-lg font-semibold text-red-200">{data.title}</h3>
+</a>

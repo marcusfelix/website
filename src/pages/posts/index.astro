@@ -1,0 +1,18 @@
+---
+import Card from "../../components/card.astro";
+import Website from "../../layouts/website.astro";
+
+const posts = await Astro.glob('./*.md');
+---
+
+<Website title="Marcus Felix - Front end Developer">
+	<div class="flex flex-col gap-4">
+		<h2 class="text-3xl font-semibold">All posts</h2>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			{posts.map((post) => <Card 
+				data={post.frontmatter}
+				href={"/posts/" + post.file.split("/").at(-1)?.split(".").at(0)}
+			/>)}
+		</div>
+	</div>
+</Website>
