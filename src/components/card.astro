@@ -1,18 +1,14 @@
 ---
 import { IconLink } from "@tabler/icons-preact";
-const { url, slug, title, subtitle } = Astro.props;
+const { url, slug } = Astro.props;
 ---
 
-<a href={url} data-title={title} target="_blank">
+<a href={url} target="_blank">
   <div class="header">
     <div class="cover fadein">
       <img src={`/assets/${slug}-1.jpeg`} alt="1"/>
       <img src={`/assets/${slug}-2.jpeg`} alt="2"/>
     </div>
-  </div>
-  <div class="info">
-    <h3>{title} <IconLink/></h3>
-    <div class="sub">{subtitle}</div>
   </div>
 </a>
 
