@@ -39,14 +39,14 @@ const { frontmatter } = Astro.props;
         </div>
       </nav>
     </header>
-    <section>
-      <div class="container mx-auto my-10 px-4">
+    <section class="px-4">
+      <div class="container mx-auto my-10">
         <img src={frontmatter.image.url} alt={frontmatter.image.alt} class="w-full"/>
       </div>
       <article class="flex flex-col gap-12 mx-auto container max-w-3xl">
         <div class="flex flex-col gap-4">
-          <h1 class="text-6xl text-black font-bold tracking-tight">{frontmatter.title}</h1>
-          <h3 class="text-3xl text-gray-400 font-light">{frontmatter.description}</h3>
+          <h1 class="md:text-6xl text-5xl text-black font-bold tracking-tight">{frontmatter.title}</h1>
+          <h3 class="md:text-3xl text-2xl text-gray-400 font-light">{frontmatter.description}</h3>
         </div>
         <div class="prose prose-xl">
           <slot/>
