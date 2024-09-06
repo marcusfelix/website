@@ -36,12 +36,15 @@ Libido can be understood not only as sexual desire but also as a drive for knowl
 
 To conclude: Creating is at the core of being. It is a matter of feeling better. It is a lifestyle (often revolting) that is reflected in every detail of a person's personality.
 
-Even the *Creation* of the world and the universe, as envisioned by [Heinrich Heine](https://en.wikipedia.org/wiki/Heinrich_Heine), reflects a similar idea:
+Even the *Creation* of the world and the universe, as envisioned by [Heinrich Heine](https://de.wikisource.org/wiki/Neue_Gedichte_(1844)), reflects a similar idea (rough translation):
 
 > Sickness was the reason
-> For all the impulse to create;
-> By creating I was able to heal myself,
-> By creating I became healthy."
+> 
+> That gave birth to all creation;
+> 
+> By creating, I could recover,
+> 
+> By creating, I became healthy.
 
 Songs of Creation — New Poems (1844)
 
