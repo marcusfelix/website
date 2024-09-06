@@ -1,0 +1,98 @@
+---
+import "@fontsource-variable/inter";
+import { IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter, IconX } from "@tabler/icons-preact";
+
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="title" content={frontmatter.title} />
+    <meta name="keywords" content={frontmatter.tags}>
+    <meta name="description" content={frontmatter.description}>
+    <meta name="author" content={frontmatter.author}>
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={`https://marcusfelix.pages.dev${Astro.props.url}`} />
+    <meta property="og:image" content={`https://marcusfelix.pages.dev${frontmatter.image.url}`} />
+    <title>{frontmatter.title}</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="tracking-tight text-gray-500">
+    <header class="container mx-auto px-4">
+      <nav class="flex items-center gap-6 text-xl py-10">
+        <a href="/"><img src="/favicon.svg" class="h-16 w-16" /></a>
+        <div class="flex-1"></div>
+        <div class="flex items-center gap-6">
+          <a href="#about">
+            About
+          </a>
+          <a href="mailto:marcus.felix@gmail.com">
+            Contact
+          </a>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="container mx-auto my-10 px-4">
+        <img src={frontmatter.image.url} alt={frontmatter.image.alt} class="w-full"/>
+      </div>
+      <article class="flex flex-col gap-12 mx-auto container max-w-3xl">
+        <div class="flex flex-col gap-4">
+          <h1 class="text-6xl text-black font-bold tracking-tight">{frontmatter.title}</h1>
+          <h3 class="text-3xl text-gray-400 font-light">{frontmatter.description}</h3>
+        </div>
+        <div class="prose prose-xl">
+          <slot/>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <a href={`https://twitter.com/intent/tweet?text=https://marcusfelix.pages.dev${Astro.props.url}`} class="twitter-share-button" target="_blank"><IconBrandTwitter/></a>
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=https://marcusfelix.pages.dev${Astro.props.url}`} class="twitter-share-button" target="_blank"><IconBrandFacebook/></a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://marcusfelix.pages.dev${Astro.props.url}`} class="twitter-share-button" target="_blank"><IconBrandLinkedin/></a>
+          </div>
+          <div class="text-gray-400 py-4">Published on {new Date(frontmatter.created).toLocaleDateString('en-US', {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })}</div>
+        </div>
+      </article>
+    </section>
+    <footer class="container mx-auto pt-40 pb-20 text-gray-400 px-4">
+      <div class="flex flex-col md:flex-row items-start gap-8">
+        <div class="flex flex-col gap-4 max-w-xs">
+          <div class="flex items-center gap-3">
+            <a href="/">
+              <img src="/favicon.svg" class="h-12 w-12" />
+            </a>
+          </div>
+          <p class=""></p>
+        </div>
+        <div class="flex-1 flex flex-col text-lg gap-2">
+          
+        </div>
+        <div class="flex flex-col text-lg gap-2">
+          <a href="mailto: marcus.felix@gmail.com" class="">marcus.felix@gmail.com</a>
+        </div>
+        
+        <div class="flex flex-col text-lg gap-2">
+          <a href="https://github.com/marcusfelix" target="_blank">Github</a>
+          <a href="https://www.linkedin.com/in/marcusvfelix/" target="_blank">LinkedIn</a>
+          <a href="https://www.xing.com/profile/Marcus_Felix068997/cv" target="_blank">Xing</a>
+        </div>
+        <div class="flex flex-col text-lg gap-2">
+          <a href="https://twitter.com/marcusfelix" target="_blank">Twitter</a>
+          <a href="https://instagram.com/marcusvfelix/" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="py-4">© {new Date().getFullYear()} Marcus Felix</div>
+    </footer>
+  </body>
+</html>

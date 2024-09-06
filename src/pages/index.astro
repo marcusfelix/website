@@ -1,7 +1,10 @@
 ---
 import Card from '../components/card.astro';
+import Post from '../components/post.astro';
 import Website from '../layouts/website.astro';
-import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop, IconLink, IconApple, IconBrandGoogle, IconBrandApple, IconBrandGooglePlay, IconLinkOff, IconGlobe } from '@tabler/icons-preact';
+import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop } from '@tabler/icons-preact';
+
+const posts = await Astro.glob('./articles/*.md');
 ---
 
 <Website title="Marcus Felix">
@@ -20,36 +23,18 @@ import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabas
 			<h1 class="text-6xl md:text-7xl md:max-w-6xl text-black leading-[72px] md:leading-[82px]">Software developer & designer crafting digital experiences for web and mobile</h1>
 		</div>
 	</main>
-	<div class="h-10"></div>
-	<!-- <section class="container mx-auto px-4">
+	<div class="h-32"></div>
+	<section class="container mx-auto px-4">
 		<div class="flex flex-col md:flex-row gap-8">
 			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Work in progress</span>
+				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Articles</span>
 			</nav>
-			<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
-				<div class="bg-zinc-100 aspect-square"></div>
-			</div>
-		</div>
-	</section>
-	<div class="h-32"></div> -->
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col gap-8">
-			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Open source</span>
-			</nav>
-			<div class="w-full grid grid-cols-1 xl:grid-cols-3 gap-6">
-				<Card
-					url="https://github.com/marcusfelix/caster"
-					slug="caster"
-				/>
-				<Card
-					url="https://github.com/marcusfelix/oscorp"
-					slug="oscorp"
-				/>
-				<Card
-					url="https://github.com/marcusfelix/hausmeister"
-					slug="hausmeister"
-				/>
+			<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-6">
+				{posts.map((item) => <Post 
+					image={item.frontmatter.image.url} 
+					slug={(item.file.split("/").at(-1) as string).replace(".md", "")} 
+					title={item.frontmatter.title}
+				/>)}
 			</div>
 		</div>
 	</section>
@@ -172,8 +157,28 @@ import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabas
 				<div class="px-1 flex gap-4 items-center text-lg"><IconCircleSquare/> Icons</div>
 				<div class="px-1 flex gap-4 items-center text-lg"><IconDeviceTablet/> Mockups</div>
 				<div class="px-1 flex gap-4 items-center text-lg"><IconPencil/> Illustrations</div>
-				
-				
+			</div>
+		</div>
+	</section>
+	<div class="h-32"></div>
+	<section class="container mx-auto px-4">
+		<div class="flex flex-col gap-8">
+			<nav class="text-2xl w-full max-w-sm">
+				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Open source</span>
+			</nav>
+			<div class="w-full grid grid-cols-1 xl:grid-cols-3 gap-6">
+				<Card
+					url="https://github.com/marcusfelix/caster"
+					slug="caster"
+				/>
+				<Card
+					url="https://github.com/marcusfelix/oscorp"
+					slug="oscorp"
+				/>
+				<Card
+					url="https://github.com/marcusfelix/hausmeister"
+					slug="hausmeister"
+				/>
 			</div>
 		</div>
 	</section>
@@ -186,9 +191,9 @@ import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabas
 			</nav>
 			<div class="w-full flex flex-col gap-6">
 				<div class="text-lg flex flex-col gap-4">
-					<p>I'm a Brazilian software developer living in Hamburg, Germany, with over 14 years of experience in web design, mobile and full-stack development. Currently working at <a class="text-cyan-600" href="https://goodbytz.com" target="_blank">GoodBytz</a> as a Front-end Developer.</p>
+					<p>I'm a Brazilian software developer living in Hamburg, Germany, with over 14 years of experience in web, mobile, full-stack development and design.</p>
 					<p>Previously, I co-founded a startup called Samhaus where we created the <a class="text-cyan-600" href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank">Super Prédio</a> mobile app. I worked for 7 years as a front-end developer for a software house creating different web and mobile apps. Among many customers, Pizza Hut Delivery (Brazil) and Dominos (Brazil) stand out. Check my entire work experience on my <a class="text-cyan-600" href="https://www.linkedin.com/in/marcusvfelix/" target="_blank">LinkedIn profile</a>.</p>
-					<p>My currently tech stack include Flutter, React, SwiftUI, GO, Deno/Node, Docker and more.</p>
+					<p>My currently tech stack includes Flutter, React, SwiftUI, Golang, Node and more.</p>
 				</div>
 			</div>
 		</div>
