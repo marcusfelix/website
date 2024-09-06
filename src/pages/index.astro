@@ -2,7 +2,7 @@
 import Card from '../components/card.astro';
 import Post from '../components/post.astro';
 import Website from '../layouts/website.astro';
-import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop } from '@tabler/icons-preact';
+import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop, IconLink, IconExternalLink, IconBrandApple, IconBrandAndroid, IconGlobe } from '@tabler/icons-preact';
 
 const posts = await Astro.glob('./articles/*.md');
 ---
@@ -48,27 +48,27 @@ const posts = await Astro.glob('./articles/*.md');
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2024</span>
 					<h3 class="flex-1 truncate">GoodBytz GmbH</h3>
-					<a href="https://goodbytz.com" target="_blank" class="hover:text-black text-zinc-400">Website</a>
+					<a href="https://goodbytz.com" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2023</span>
 					<h3 class="flex-1 truncate">Bit Electronics</h3>
-					<a href="https://apps.apple.com/us/app/bit-electronics/id6450903735" target="_blank" class="hover:text-black text-zinc-400">iOS</a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.bit.electronics.app" target="_blank" class="hover:text-black text-zinc-400">Android</a>
+					<a href="https://apps.apple.com/us/app/bit-electronics/id6450903735" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
+					<a href="https://play.google.com/store/apps/details?id=br.com.bit.electronics.app" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2022</span>
 					<h3 class="flex-1 truncate">Deplōid Studio</h3>
-					<a href="https://website-71q.pages.dev" target="_blank" class="hover:text-black text-zinc-400">Website</a>
+					<a href="https://website-71q.pages.dev" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2021</span>
 					<h3 class="flex-1 truncate">Uniman</h3>
-					<a href="https://apps.apple.com/us/app/uniman/id1582471539" target="_blank" class="hover:text-black text-zinc-400">iOS</a>
-					<a href="https://play.google.com/store/apps/details?id=com.samhaus.uniman.app" target="_blank" class="hover:text-black text-zinc-400">Android</a>
+					<a href="https://apps.apple.com/us/app/uniman/id1582471539" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
+					<a href="https://play.google.com/store/apps/details?id=com.samhaus.uniman.app" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
@@ -79,15 +79,15 @@ const posts = await Astro.glob('./articles/*.md');
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2019</span>
 					<h3 class="flex-1 truncate">2E Lighting</h3>
-					<a href="https://apps.apple.com/br/app/2e-lighting-2-1/id1492108030" target="_blank" class="hover:text-black text-zinc-400">iOS</a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.disac.cliente.cliente" target="_blank" class="hover:text-black text-zinc-400">Android</a>
+					<a href="https://apps.apple.com/br/app/2e-lighting-2-1/id1492108030" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
+					<a href="https://play.google.com/store/apps/details?id=br.com.disac.cliente.cliente" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2019</span>
 					<h3 class="flex-1 truncate">2E Admin</h3>
-					<a href="https://apps.apple.com/br/app/2e-admin-2-2/id1492100155" target="_blank" class="hover:text-black text-zinc-400">iOS</a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.disac.admin" target="_blank" class="hover:text-black text-zinc-400">Android</a>
+					<a href="https://apps.apple.com/br/app/2e-admin-2-2/id1492100155" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
+					<a href="https://play.google.com/store/apps/details?id=br.com.disac.admin" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
 				</div>
 				<hr/>
 				
@@ -104,31 +104,30 @@ const posts = await Astro.glob('./articles/*.md');
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2017</span>
 					<h3 class="flex-1 truncate">Mathtronics</h3>
-					<a href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank" class="hover:text-black text-zinc-400"></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2016</span>
 					<h3 class="flex-1 truncate">Super Prédio</h3>
-					<a href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank" class="hover:text-black text-zinc-400">Article</a>
+					<a href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2014</span>
 					<h3 class="flex-1 truncate">Bridge</h3>
-					<a href="https://www.behance.net/gallery/48298489/Bridge-Audio-Video" target="_blank" class="hover:text-black text-zinc-400">Behance</a>
+					<a href="https://www.behance.net/gallery/48298489/Bridge-Audio-Video" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2013</span>
 					<h3 class="flex-1 truncate">Guia América</h3>
-					<a href="https://www.behance.net/gallery/48397373/Guia-Amrica" target="_blank" class="hover:text-black text-zinc-400">Behance</a>
+					<a href="https://www.behance.net/gallery/48397373/Guia-Amrica" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
 					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2011</span>
 					<h3 class="flex-1 truncate">Accon</h3>
-					<a href="https://www.accon.com.br" target="_blank" class="hover:text-black text-zinc-400">Website</a>
+					<a href="https://www.accon.com.br" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
 				</div>
 				<hr/>
 				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
