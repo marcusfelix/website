@@ -31,7 +31,7 @@ I imagine that it will be necessary to manufacture all of this in space not far 
 ## Doomsday Centrifugation
 We all know how centrifugal force works, right?
 
-<iframe src="https://giphy.com/embed/8B4uAsmg4kI92" width="480" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fail-fall-spinning-8B4uAsmg4kI92">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/8B4uAsmg4kI92" width="320" height="auto" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fail-fall-spinning-8B4uAsmg4kI92">via GIPHY</a></p>
 
 Imagine if it were possible to accelerate the rotation of the planet with rockets at the equator, fixed at a certain angle so that the planet rotated once every 80 minutes. This would be enough to flatten the spherical shape with pieces of the Earth's crust breaking off until only the exposed magma remained. In this case, moments before the apocalypse, winds of astonishing speed would not only rip clothes off the clothesline but would smooth the surface of the Earth, removing mountains and filling valleys with wind, dust and sea water. Be warned.
 
