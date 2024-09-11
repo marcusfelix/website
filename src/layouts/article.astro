@@ -57,7 +57,7 @@ const { frontmatter } = Astro.props;
             <a href={`https://www.facebook.com/sharer/sharer.php?u=https://marcusfelix.pages.dev${Astro.props.url}`} class="twitter-share-button" target="_blank"><IconBrandFacebook/></a>
             <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://marcusfelix.pages.dev${Astro.props.url}`} class="twitter-share-button" target="_blank"><IconBrandLinkedin/></a>
           </div>
-          <div class="text-gray-400 py-4">Published on {new Date(frontmatter.created).toLocaleDateString('en-US', {
+          <div class="text-gray-400 py-4">By {frontmatter.author} @ {new Date(frontmatter.created).toLocaleDateString('en-US', {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
