@@ -5,7 +5,7 @@ description: 'What do eccentricity and cognitive disinhibition have to do with i
 author: 'Marcus Felix'
 image:
     url: '/assets/shirtless-picasso-32.jpg'
-    alt: 'Shirtless Pablo Picasso'
+    alt: 'Pablo Picasso'
 tags: ["creativity", "inovation", "entrepreneurship", "psychology"]
 layout: '../../layouts/article.astro'
 ---
@@ -20,7 +20,8 @@ Creativity, at its core, is simply the ability to bring something new into exist
 
 > Weird: adj. Unusual, out of the ordinary. / Rare, exquisite, excellent. / Well-crafted, distinctive. / Fam. Extravagant, singular, eccentric. / Eccentric, moody, unconventional. / Bras. Ugly, poorly dressed.
 
-![Guernica, Pablo Picasso](/assets/guernica.webp)
+![Guernica, Pablo Picasso](/assets/guernica.webp) 
+<sup>Gernica - Pablo Picasso</sup>
 
 Van Gogh, who famously cut off his own ear yet remains one of the most celebrated post-impressionist painters. Steve Jobs, known for his emotional intensity, revolutionized personal computing. And Michael Jackson, well, he was Michael Jackson. Plato noted that the greatest poets were often somewhat mad, and Aristotle observed that [creative people tended to suffer from melancholy](https://www.researchgate.net/publication/362701817_Aristotle_on_Melancholy). There are countless examples linking creative genius with eccentric behavior or even psychological challenges.
 

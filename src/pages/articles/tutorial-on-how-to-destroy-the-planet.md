@@ -13,6 +13,7 @@ layout: '../../layouts/article.astro'
 First of all, I need to say that destroying the planet is very difficult, but we will list here some ways to end this place we call Earth. Second, none of the ways listed here are easy to access, sometimes completely inaccessible, so don't worry about sharing this text around.
 
 ![Space Cosmic Turtle](/assets/space-turtle.webp)
+<sup>Badass Cosmic Turtle</sup>
 
 
 To begin with, our planet is over 4.5 billion years old (for those who believe) and is still here. It has withstood thousands of impacts from asteroids ranging from the size of a car to bodies the size of Mars — which is even a theory about the origin of our moon (for those who believe), but that's another story.
@@ -47,6 +48,7 @@ But remember that our Sun is halfway through its life and that in 5 billion year
 Anyone who has seen Christopher Nolan's film Interstellar will be familiar with a good visual representation of an Einstein-Podolsky-Rosen Bridge, also known as a Wormhole. In the film, the characters enter one of these holes and travel through a fold in time and space to a system of planets orbiting a wonderful black hole.
 
 ![Gargantua](/assets/gargantua.webp)
+<sup>Gargantua - Interstellar (2014)</sup>
 
 With the technology to open a wormhole, the possibilities are varied. We could connect the center of our planet to a black hole and be sucked in from the inside out, or to the center of a red giant and explode in a grandiose way. In short, we could do a lot if all of this were even remotely possible. Wormholes are hypothetical and scientifically improbable astronomical objects.
 
