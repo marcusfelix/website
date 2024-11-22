@@ -1,6 +1,7 @@
 ---
 import Card from '../components/card.astro';
 import Post from '../components/post.astro';
+import Project from '../components/project.astro';
 import Website from '../layouts/website.astro';
 import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop, IconBrandApple, IconBrandAndroid } from '@tabler/icons-preact';
 
@@ -168,20 +169,38 @@ const posts = await Astro.glob('./articles/*.md');
 	<section class="container mx-auto px-4">
 		<div class="flex flex-col gap-8">
 			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Open source</span>
+				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Open Source</span>
 			</nav>
-			<div class="w-full grid grid-cols-1 xl:grid-cols-3 gap-6">
-				<Card
+			<div class="w-full grid grid-cols-1 xl:grid-cols-4 gap-4">
+				<Project
 					url="https://github.com/marcusfelix/caster"
-					slug="caster"
+					name="Caster"
+					stack="Flutter, Firebase"
 				/>
-				<Card
+				<Project
 					url="https://github.com/marcusfelix/oscorp"
-					slug="oscorp"
+					name="OSCORP"
+					stack="Flutter, Firebase"
 				/>
-				<Card
+				<Project
 					url="https://github.com/marcusfelix/hausmeister"
-					slug="hausmeister"
+					name="Hausmeister"
+					stack="Flutter, Firebase"
+				/>
+				<Project
+					url="https://github.com/marcusfelix/full-stack-scheduler"
+					name="Scheduler"
+					stack="React, Node, Prisma"
+				/>
+				<Project
+					url="https://github.com/marcusfelix/duck-calc"
+					name="Duck Calc"
+					stack="React Native"
+				/>
+				<Project
+					url="https://github.com/marcusfelix/roboto"
+					name="Roboto Bot"
+					stack="Go"
 				/>
 			</div>
 		</div>
