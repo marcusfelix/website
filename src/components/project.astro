@@ -1,0 +1,18 @@
+---
+import { IconBrandGithub, IconLink } from "@tabler/icons-preact";
+
+const { url, name, stack } = Astro.props;
+---
+
+<a class="flex flex-row items-center gap-4 p-2 bg-gray-100 hover:bg-gray-200" href={url}  target="_blank">
+  <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full">
+    <IconBrandGithub size={20}/>
+  </div>
+  <div class="flex flex-col flex-1">
+    <h3 class="text-md font-semibold tracking-tight">{name}</h3>
+    <p class="text-sm text-gray-400">{stack}</p>
+  </div>
+  <div class="p-4">
+    <IconLink size={20}/>
+  </div>
+</a>
