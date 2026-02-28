@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-background: oklch(98.8% 0.003 106.5);
+    --color-foreground-900: oklch(20.8% 0.042 265.755);
+    --color-foreground-500: oklch(55.4% 0.046 257.417);
+    --color-foreground-200: oklch(92.9% 0.013 255.508);
+    --font-mono: 'JetBrains Mono Variable', monospace;
+    --tw-prose-code: var(--color-pink-900);
+}
+
+@layer components{
+  .container {
+    @apply max-w-7xl;
+  }
+}

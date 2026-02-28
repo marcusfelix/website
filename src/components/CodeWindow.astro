@@ -1,0 +1,32 @@
+---
+// Import Astro's Code component for syntax highlighting
+import { IconPlayerPlay } from '@tabler/icons-preact';
+import { Code } from 'astro:components';
+---
+
+<div class="flex flex-col w-full rounded-xl overflow-hidden">
+  <Code 
+    class="prose prose-sm prose-custom flex-1 max-w-full p-4 overflow-x-auto"
+    code={`class StochasticParrot
+ {
+  data = {};
+  train(text) {
+    const words = text.toLowerCase().split(/\\s+/);
+    words.forEach((w, i) => {
+      if (words[i + 1]) (this.data[w] ??= []).push(words[i + 1]);
+    });
+  }
+  complete(str, len = 5) {
+    let res = str.toLowerCase().split(/\\s+/);
+    while (len--) {
+      const next = this.data[res.at(-1)];
+      if (!next) break;
+      res.push(next[Math.floor(Math.random() * next.length)]);
+    }
+    return res.join(" ");
+  }
+}`}
+    lang="javascript"
+    title="StochasticParrot.js"
+  />
+</div>

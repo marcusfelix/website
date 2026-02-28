@@ -1,0 +1,16 @@
+---
+
+const props = Astro.props;
+---
+
+<div class="grid grid-cols-2 gap-4">
+    <img src={props.image} alt={props.title} class="w-full object-cover aspect-video rounded-xl grayscale hover:grayscale-0"/>
+    <div class="flex flex-col gap-2">
+        <span class="text-lg">{props.index}.</span>
+        <h4 class="text-foreground-500 text-sm uppercase">Article</h4>
+        <div class="flex flex-col gap-2">
+            <h2 class="text-2xl font-bold line-clamp-3">{props.title}</h2>
+            <a href={`/articles/${props.slug}`} class="text-blue-600">Read more</a>
+        </div>
+    </div>
+</div>
