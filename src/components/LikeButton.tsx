@@ -1,7 +1,6 @@
 import { IconHeart, IconLoader2 } from "@tabler/icons-preact";
 import { useState, useEffect } from "preact/hooks";
 import Counter from "./Counter";
-import { set } from "astro:schema";
 
 export default function LikeButton() {
     const [working, setWorking] = useState(true);

@@ -16,13 +16,11 @@
 	"kv_namespaces": [
 		{
 			"binding": "WEBSITE_LIKES_STORE",
-			"id": "90017a1a492b42d29e11cc8473440ed2",
-            "remote": true
+			"id": "90017a1a492b42d29e11cc8473440ed2"
 		},
 		{
 			"binding": "SESSION",
-			"id": "d925ecee842d4db6900c1b6b1d2128f7",
-			"remote": true
+			"id": "d925ecee842d4db6900c1b6b1d2128f7"
 		}
 	]
 }

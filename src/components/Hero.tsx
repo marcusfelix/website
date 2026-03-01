@@ -23,8 +23,11 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     const [starterIndex, setStarterIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
 
-    const parrot = useMemo(() => new StochasticParrot(), []);
-    parrot.trainAll(trainData);
+    const parrot = useMemo(() => {
+        const p = new StochasticParrot();
+        p.trainAll(trainData);
+        return p;
+    }, []);
 
     const type = async (newText: string) => {
         setIsTyping(true);
