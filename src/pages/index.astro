@@ -2,31 +2,19 @@
 import Layout from "../layouts/Layout.astro";
 import GridCell from "../components/GridCell.astro";
 import Post from "../components/Post.astro";
-import { IconPlayerPlay } from "@tabler/icons-preact";
-import CodeWindow from "../components/CodeWindow.astro";
 import LikeButton from "../components/LikeButton";
+import Hero from "../components/Hero";
+import CodeWindow from "../components/CodeWindow.astro";
 
 const posts = await Astro.glob('./articles/*.md');
 ---
 
 <Layout>
-	<section class="container mx-auto flex flex-col gap-20">
+	<section class="flex flex-col gap-20">
 		<main class="flex flex-col justify-center">
-			<div class="flex flex-row gap-4 items-center">
-				<div class="">
-					<h1 class="flex-1 font-bold text-8xl text-foreground-900">
-						Design oriented code​_
-					</h1>
-				</div>
-				<div class="flex flex-col gap-2">
-					<CodeWindow/>
-					<div class="flex flex-row px-2">
-						<button class="flex gap-2 items-center">
-							<IconPlayerPlay size={18}/> Run code
-						</button>
-					</div>
-				</div>
-			</div>
+			<Hero client:load>
+				<CodeWindow />
+			</Hero>
 		</main>
 		<div class="flex flex-col gap-6">
 			<div>

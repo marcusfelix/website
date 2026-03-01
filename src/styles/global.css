@@ -11,8 +11,12 @@
     --tw-prose-code: var(--color-pink-900);
 }
 
-@layer components{
-  .container {
-    @apply max-w-7xl;
-  }
+.blink {
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
