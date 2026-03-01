@@ -7,7 +7,7 @@ image:
     url: '/assets/doomsday.jpg'
     alt: 'Doomsday'
 tags: ["sustainability", "space", "science"]
-layout: '../../layouts/article.astro'
+layout: '../../layouts/Article.astro'
 
 ---
 First of all, I need to say that destroying the planet is very difficult, but we will list here some ways to end this place we call Earth. Second, none of the ways listed here are easy to access, sometimes completely inaccessible, so don't worry about sharing this text around.

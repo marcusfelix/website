@@ -7,7 +7,7 @@ image:
     url: '/assets/shirtless-picasso-32.jpg'
     alt: 'Pablo Picasso'
 tags: ["creativity", "inovation", "entrepreneurship", "psychology"]
-layout: '../../layouts/article.astro'
+layout: '../../layouts/Article.astro'
 ---
 
 It's common to think that the only skill needed by someone embarking on an entrepreneurial journey is social ability — after all, you need to sell, negotiate, and close deals. Social ease is indeed important, but recently, there has been increasing emphasis on innovation and creativity as competitive strategies. In this case, cognitive disinhibition becomes crucial.
