@@ -1,5 +1,5 @@
 ---
-import { IconBrandGithub, IconBrandGithubFilled, IconCode, IconMoon } from "@tabler/icons-preact";
+import { IconBrandGithub, IconMoon, IconSun } from "@tabler/icons-preact";
 import Icon from "../assets/icon.svg";
 ---
 
@@ -8,6 +8,54 @@ import Icon from "../assets/icon.svg";
         <img src={Icon.src} class="w-16 h-16" />
     </a>
     <nav class="flex gap-4 items-center">
-        <a href="https://github.com/marcusfelix/website"><IconMoon size={24} /></a>
+        <button id="theme-toggle" class="cursor-pointer hover:text-foreground-500 transition-colors flex items-center justify-center" aria-label="Toggle theme">
+            <div id="sun-icon-wrapper">
+                <IconSun size={24} />
+            </div>
+            <div id="moon-icon-wrapper">
+                <IconMoon size={24} />
+            </div>
+        </button>
     </nav>
 </header>
+
+<style>
+  /* Base state: hide both */
+  #sun-icon-wrapper, #moon-icon-wrapper {
+    display: none;
+  }
+  
+  /* Show moon icon in light mode */
+  :global(.light) #moon-icon-wrapper {
+    display: block;
+  }
+  
+  /* Show sun icon in dark mode */
+  :global(.dark) #sun-icon-wrapper {
+    display: block;
+  }
+
+  /* Fallback: if neither class is present (early load), show moon */
+  :global(html:not(.light):not(.dark)) #moon-icon-wrapper {
+    display: block;
+  }
+</style>
+
+<script is:inline>
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    const isDark = element.classList.contains("dark");
+    
+    if (isDark) {
+      element.classList.remove("dark");
+      element.classList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      element.classList.remove("light");
+      element.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
+  document.getElementById("theme-toggle").addEventListener("click", handleToggleClick);
+</script>

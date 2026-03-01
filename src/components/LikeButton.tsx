@@ -56,7 +56,7 @@ export default function LikeButton() {
     return (
         <>
             <button 
-                class={`w-10 h-10 flex gap-2 items-center justify-center cursor-pointer rounded-full transition-colors ${hasLiked ? 'bg-rose-100 text-rose-500' : 'bg-foreground-200 text-foreground-500 hover:bg-red-200 hover:text-rose-800'}`} 
+                class={`w-10 h-10 flex gap-2 items-center justify-center cursor-pointer rounded-full transition-colors ${hasLiked ? 'bg-like-active-bg text-like-active-text' : 'bg-foreground-200 text-foreground-500 hover:bg-like-hover-bg hover:text-like-hover-text'}`} 
                 onClick={handleClick}
                 disabled={hasLiked}
             >

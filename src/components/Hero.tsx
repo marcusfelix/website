@@ -1,4 +1,4 @@
-import { IconPlayerPlay } from "@tabler/icons-preact";
+import { IconPlayerPlay, IconRefresh } from "@tabler/icons-preact";
 import { useEffect, useState, useMemo } from "preact/hooks";
 import { StochasticParrot } from "../includes/stochasticParrot";
 import type { ComponentChildren } from "preact";
@@ -38,7 +38,7 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     const clear = async (current: string) => {
         setIsTyping(true);
         for (let i = current.length; i >= 0; i--) {
-            await new Promise(resolve => setTimeout(resolve, 40));
+            await new Promise(resolve => setTimeout(resolve, 20));
             setText(current.substring(0, i));
         }
         setIsTyping(false);
@@ -72,26 +72,26 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     }
     
     return (
-        <div class="flex flex-col md:flex-row gap-4 items-center">
-            <div class="w-full">
+        <div class="flex flex-col md:flex-row gap-8 items-center w-full">
+            <div class="w-full md:w-1/2">
                 <h1 class="flex-1 font-bold text-6xl md:text-8xl text-foreground-900">
                     {text}<span class={isTyping ? "" : "blink"}>_</span>
                 </h1>
             </div>
-            <div class="flex gap-2 flex-col-reverse md:flex-col">
+            <div class="flex gap-4 flex-col-reverse md:flex-col w-full md:w-1/2 min-w-0">
                 {children}
-                <div class="flex flex-row items-center gap-4 px-2">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 px-2">
                     <button 
                         type="button" 
                         class="flex gap-2 items-center cursor-pointer text-sm" 
                         onClick={handleRunCode}
                         disabled={isTyping}
                     >
-                        <IconPlayerPlay size={18}/> Run code
+                        <IconRefresh size={18}/> Re-run
                     </button>
                     {currentStarter && (
                         <span class="text-xs text-foreground-500 bg-foreground-200 px-2 py-1 rounded-full">
-                            parrot.<span class="text-purple-500">complete</span>(<span class="text-cyan-700">"{currentStarter}"</span>)
+                            parrot.<span class="text-purple-500 dark:text-purple-400">complete</span>(<span class="text-yellow-700 dark:text-yellow-600">"{currentStarter}"</span>)
                         </span>
                     )}
                 </div>
