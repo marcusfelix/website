@@ -12,7 +12,7 @@ const posts = await Astro.glob('./articles/*.md');
 <Layout>
 	<section class="flex flex-col gap-20">
 		<main class="flex flex-col justify-center">
-			<Hero client:load>
+			<Hero client:visible>
 				<CodeWindow />
 			</Hero>
 		</main>
