@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>Marcus Felix</title>
     </head>
-    <body class="font-mono bg-background flex flex-col gap-30">
+    <body class="font-mono bg-background flex flex-col md:gap-30">
         <Header />
         <section>
             <div class="container mx-auto my-10">
@@ -34,7 +34,7 @@ const { frontmatter } = Astro.props;
                     class="w-full"
                 />
             </div>
-            <article class="flex flex-col gap-12 mx-auto container max-w-3xl">
+            <article class="flex flex-col gap-12 mx-auto container max-w-3xl px-4">
                 <div class="flex flex-col gap-4">
                     <h1
                         class="md:text-6xl text-5xl text-black font-bold tracking-tight"

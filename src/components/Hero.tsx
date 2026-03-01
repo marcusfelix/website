@@ -3,6 +3,20 @@ import { useEffect, useState, useMemo } from "preact/hooks";
 import { StochasticParrot } from "../includes/stochasticParrot";
 import type { ComponentChildren } from "preact";
 
+const trainData = [
+    "Design oriented code is how you develop software with purpose",
+    "Hi, I'm Marcus. I'm a software developer with a passion for technology and design.",
+    "Tutorial on how to destroy the planet.",
+    "Why are creative people so weird?",
+    "Memoria is a side project about photo sharing",
+    "Agent Barney is a side project for automation.",
+    "Fluent Forever is a book about learning languages.",
+    "Hytale is an upcoming game with infinite possibilities.",
+    "Steely Dan fusion rock with jazz",
+    "We build something together using design and technology.",
+    "Simple and enjoyable to use digital products."
+];
+
 export default function Hero({ children }: { children?: ComponentChildren }) {
     const [text, setText] = useState("");
     const [currentStarter, setCurrentStarter] = useState("");
@@ -10,19 +24,7 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     const [isTyping, setIsTyping] = useState(false);
 
     const parrot = useMemo(() => new StochasticParrot(), []);
-
-    const starters = [
-        "Design oriented",
-        "Hi, I'm",
-        "Simple and",
-        "Create digital",
-        "Digital products",
-        "Code that",
-        "How to",
-        "Creative people",
-        "Steely Dan",
-        "Side project"
-    ];
+    parrot.trainAll(trainData);
 
     const type = async (newText: string) => {
         setIsTyping(true);
@@ -44,7 +46,7 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
 
     // Initial load: start with the first starter
     useEffect(() => {
-        const firstStarter = starters[0];
+        const firstStarter = getFirstThreeWords(trainData[0]);
         setCurrentStarter(firstStarter);
         type(parrot.complete(firstStarter, 3));
         setStarterIndex(1); // Next one will be index 1
@@ -53,39 +55,43 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     const handleRunCode = async () => {
         if (isTyping) return;
         
-        const nextIndex = starterIndex % starters.length;
-        const starter = starters[nextIndex];
+        const nextIndex = starterIndex % trainData.length;
+        const starter = getFirstThreeWords(trainData[nextIndex]);
         
         setCurrentStarter(starter);
-        const prediction = parrot.complete(starter, 3);
+        const prediction = parrot.complete(starter, 5);
         
         await clear(text);
         await type(prediction);
         
         setStarterIndex(nextIndex + 1);
     }
+
+    const getFirstThreeWords = (str: string) => {
+        return str.split(" ").slice(0, 2).join(" ");
+    }
     
     return (
-        <div class="flex flex-row gap-4 items-center">
+        <div class="flex flex-col md:flex-row gap-4 items-center">
             <div class="w-full">
-                <h1 class="flex-1 font-bold text-8xl text-foreground-900">
+                <h1 class="flex-1 font-bold text-6xl md:text-8xl text-foreground-900">
                     {text}<span class={isTyping ? "" : "blink"}>_</span>
                 </h1>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex gap-2 flex-col-reverse md:flex-col">
                 {children}
                 <div class="flex flex-row items-center gap-4 px-2">
                     <button 
                         type="button" 
-                        class="flex gap-2 items-center cursor-pointer" 
+                        class="flex gap-2 items-center cursor-pointer text-sm" 
                         onClick={handleRunCode}
                         disabled={isTyping}
                     >
                         <IconPlayerPlay size={18}/> Run code
                     </button>
                     {currentStarter && (
-                        <span class="text-xs text-foreground-500">
-                            Starter: "{currentStarter}"
+                        <span class="text-xs text-foreground-500 bg-foreground-200 px-2 py-1 rounded-full">
+                            parrot.<span class="text-purple-500">complete</span>(<span class="text-cyan-700">"{currentStarter}"</span>)
                         </span>
                     )}
                 </div>

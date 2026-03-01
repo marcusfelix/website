@@ -19,21 +19,20 @@ const posts = await Astro.glob('./articles/*.md');
 		<div class="flex flex-col gap-6">
 			<div>
 				<p class="text-xl text-foreground-500">
-					Hi, I'm Marcus. I'm a software developer with a passion for
-					technology and a strong background in design. I basically let
+					Hi, I'm Marcus Felix. I'm a software developer with a deep passion for design － Letting
 					human factors, purpose, and empathy guide my technical skills to
 					create digital products that are simple and enjoyable to use.
 				</p>
 			</div>
 			<div class="flex gap-4 items-stretch justify-between">
-				<div class="flex gap-4">
+				<!-- <div class="flex gap-4">
 					<button class="bg-blue-600 text-blue-100 px-6"
 						>GitHub</button
 					>
 					<div class="flex flex-col text-sm text-foreground-500">
 						v2.304 <br /> Release notes
 					</div>
-				</div>
+				</div> -->
 				<div class="flex gap-4">
 					<LikeButton client:load/>
 				</div>
@@ -41,7 +40,7 @@ const posts = await Astro.glob('./articles/*.md');
 			</div>
 		</div>
 		<div>
-			<div class="grid grid-cols-4 border gap-px border-foreground-200 bg-foreground-200 rounded-xl overflow-hidden">
+			<div class="grid grid-cols-1 md:grid-cols-4 border gap-px border-foreground-200 bg-foreground-200 rounded-xl overflow-hidden">
 				<GridCell
 					index={1}
 					title="Muun GmbH"
@@ -52,7 +51,7 @@ const posts = await Astro.glob('./articles/*.md');
 					index={2}	
 					title="memoria"
 					subtitle="Side project"
-					class="col-span-2" 
+					class="md:col-span-2" 
 				/>
 				<GridCell
 					index={3}
@@ -88,7 +87,7 @@ const posts = await Astro.glob('./articles/*.md');
 
 		<div>
 			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				{posts.map((item, i) => <Post 
 					index={i + 1}
 					image={item.frontmatter.image.url} 
