@@ -18,10 +18,15 @@ const trainData = [
 ];
 
 export default function Hero({ children }: { children?: ComponentChildren }) {
+    const [mounted, setMounted] = useState(false);
     const [text, setText] = useState("");
     const [currentStarter, setCurrentStarter] = useState("");
     const [starterIndex, setStarterIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const parrot = useMemo(() => {
         const p = new StochasticParrot();
@@ -49,11 +54,16 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
 
     // Initial load: start with the first starter
     useEffect(() => {
+        if (!mounted) return;
         const firstStarter = getFirstThreeWords(trainData[0]);
         setCurrentStarter(firstStarter);
         type(parrot.complete(firstStarter, 3));
         setStarterIndex(1); // Next one will be index 1
-    }, []);
+    }, [mounted]);
+
+    if (!mounted) {
+        return <div class="flex flex-col md:flex-row gap-8 items-center w-full min-h-[400px] opacity-0"></div>;
+    }
 
     const handleRunCode = async () => {
         if (isTyping) return;
