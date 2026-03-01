@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import GridCell from "../components/GridCell.astro";
 import Post from "../components/Post.astro";
-import { IconHeart, IconPlayerPlay } from "@tabler/icons-preact";
+import { IconPlayerPlay } from "@tabler/icons-preact";
 import CodeWindow from "../components/CodeWindow.astro";
 import LikeButton from "../components/LikeButton";
 
@@ -10,8 +10,8 @@ const posts = await Astro.glob('./articles/*.md');
 ---
 
 <Layout>
-	<section class="container mx-auto px-4 flex flex-col gap-20">
-		<main class=" flex flex-col justify-center">
+	<section class="container mx-auto flex flex-col gap-20">
+		<main class="flex flex-col justify-center">
 			<div class="flex flex-row gap-4 items-center">
 				<div class="">
 					<h1 class="flex-1 font-bold text-8xl text-foreground-900">
@@ -58,58 +58,55 @@ const posts = await Astro.glob('./articles/*.md');
 					index={1}
 					title="Muun GmbH"
 					subtitle="Work"
-					url="https://www.muun.com"
+					url="https://muun.studio"
 				/>
 				<GridCell
 					index={2}	
 					title="memoria"
 					subtitle="Side project"
-					url="https://www.h-da.de"
 					class="col-span-2" 
 				/>
 				<GridCell
 					index={3}
-					title="Caves of Altamira"
+					title="Steely Dan"
 					subtitle="Listening"
-					url="https://www.marcus-herrmann.de"
 				/>
 				<GridCell
 					index={4}
 					title="Agent Barney"
 					subtitle="Side project"
-					url="https://www.marcus-herrmann.de"
 				/>
 				<GridCell
 					index={5}
 					title="Fluent Forever"
 					subtitle="Reading"
-					url="https://www.marcus-herrmann.de"
+					url="https://hardcover.app/books/fluent-forever"
 					
 				/>
 				<GridCell
 					index={6}
 					title="German A2"
 					subtitle="Learning"
-					url="https://www.marcus-herrmann.de"
 				/>
 				
 				<GridCell
 					index={7}
 					title="Hytale"
 					subtitle="Gaming"
-					url="https://www.marcus-herrmann.de"
+					url="https://hytale.com/"
 				/>
 			</div>
 		</div>
 
 		<div>
-			<h2 class="text-3xl font-bold text-foreground-900 mb-6">|> Latest articles</h2>
+			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
 			<div class="grid grid-cols-2 gap-4">
 				{posts.map((item, i) => <Post 
 					index={i + 1}
 					image={item.frontmatter.image.url} 
 					slug={(item.file.split("/").at(-1) as string).replace(".md", "")} 
 					title={item.frontmatter.title}
+					url={`/articles/${(item.file.split("/").at(-1) as string).replace(".md", "")}`}
 				/>)}
 			</div>
 		</div>
