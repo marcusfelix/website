@@ -1,4 +1,6 @@
 ---
+import { Code } from 'astro:components';
+
 const code = `class StochasticParrot {
   data = {};
   train(text) {
@@ -19,8 +21,8 @@ const code = `class StochasticParrot {
 }`;
 ---
 
-<div class="flex flex-col w-full rounded-xl overflow-hidden border border-foreground-200 bg-background min-w-0">
-  <pre class="p-4 overflow-x-auto block text-sm leading-relaxed font-mono text-foreground-900 bg-background"><code>{code}</code></pre>
+<div class="flex flex-col w-full rounded-xl overflow-hidden bg-background min-w-0">
+  <Code code={code} lang={"js"} class="text-sm p-4" />
 </div>
 
 <style is:global>

@@ -1,20 +1,20 @@
-import { IconPlayerPlay, IconRefresh } from "@tabler/icons-preact";
+import { IconReload } from "@tabler/icons-preact";
 import { useEffect, useState, useMemo } from "preact/hooks";
 import { StochasticParrot } from "../includes/stochasticParrot";
 import type { ComponentChildren } from "preact";
 
 const trainData = [
     "Design oriented code is how you develop software with purpose",
-    "Hi, I'm Marcus. I'm a software developer with a passion for technology and design.",
-    "Tutorial on how to destroy the planet.",
-    "Why are creative people so weird?",
-    "Memoria is a side project about photo sharing",
-    "Agent Barney is a side project for automation.",
-    "Fluent Forever is a book about learning languages.",
-    "Hytale is an upcoming game with infinite possibilities.",
+    "Hi, I'm Marcus Felix",
+    "How to destroy the planet",
+    "Why are creative people so weird",
+    "Memoria is an app to share photos",
+    "Agent Barney is a AI agent",
+    "Fluent Forever is about languages",
+    "Hytale is an upcoming game with infinite possibilities",
     "Steely Dan fusion rock with jazz",
-    "We build something together using design and technology.",
-    "Simple and enjoyable to use digital products."
+    "We build something together using design and technology",
+    "Simple and enjoyable to use digital products"
 ];
 
 export default function Hero({ children }: { children?: ComponentChildren }) {
@@ -52,17 +52,16 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
         setIsTyping(false);
     }
 
-    // Initial load: start with the first starter
     useEffect(() => {
         if (!mounted) return;
         const firstStarter = getFirstThreeWords(trainData[0]);
         setCurrentStarter(firstStarter);
         type(parrot.complete(firstStarter, 3));
-        setStarterIndex(1); // Next one will be index 1
+        setStarterIndex(1);
     }, [mounted]);
 
     if (!mounted) {
-        return <div class="flex flex-col md:flex-row gap-8 items-center w-full min-h-[400px] opacity-0"></div>;
+        return <div class="flex flex-col md:flex-row gap-8 items-center w-full min-h-100 opacity-0"></div>;
     }
 
     const handleRunCode = async () => {
@@ -83,9 +82,11 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
     const getFirstThreeWords = (str: string) => {
         return str.split(" ").slice(0, 2).join(" ");
     }
+
+    const fullPhrase = trainData[starterIndex]
     
     return (
-        <div class="flex flex-col md:flex-row gap-8 items-center w-full">
+        <div class="flex flex-col md:flex-row gap-8 items-start w-full">
             <div class="w-full md:w-1/2">
                 <h1 class="flex-1 font-bold text-6xl md:text-8xl text-foreground-900">
                     {text}<span class={isTyping ? "" : "blink"}>_</span>
@@ -100,7 +101,7 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
                         onClick={handleRunCode}
                         disabled={isTyping}
                     >
-                        <IconRefresh size={18}/> Re-run
+                        <IconReload size={18} class={isTyping ? "animate-spin" : ""}/> Re-run
                     </button>
                     {currentStarter && (
                         <span class="text-xs text-foreground-500 bg-foreground-200 px-2 py-1 rounded-full">
