@@ -104,7 +104,7 @@ export default function Hero({ children }: { children?: ComponentChildren }) {
                     </button>
                     {currentStarter && (
                         <span class="text-xs text-foreground-500 bg-foreground-200 px-2 py-1 rounded-full">
-                            parrot.<span class="text-purple-500 dark:text-purple-400">complete</span>(<span class="text-yellow-700 dark:text-yellow-600">"{currentStarter}"</span>)
+                            parrot.<span class="text-purple-500">complete</span>(<span class="text-yellow-700">"{currentStarter}"</span>)
                         </span>
                     )}
                 </div>

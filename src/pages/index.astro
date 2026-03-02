@@ -10,91 +10,81 @@ const posts = await Astro.glob('./articles/*.md');
 ---
 
 <Layout>
-	<section class="flex flex-col gap-20">
-		<main class="flex flex-col justify-center">
-			<Hero client:only="preact">
-				<CodeWindow />
-			</Hero>
-		</main>
+	<div class="container mx-auto max-w-7xl px-4 flex flex-col gap-20 py-20">
+		<section class="flex flex-col gap-20">
+			<main class="flex flex-col justify-center">
+				<Hero client:only="preact">
+					<CodeWindow />
+				</Hero>
+			</main>
 
-		<div class="flex flex-col gap-6">
-			<div>
-				<p class="text-xl text-foreground-500">
-					Hi, I'm Marcus Felix. I bridge the gap between complex code and human experience. As a developer with a foundation in design, I use empathy and purpose to guide my technical skills, creating tools that aren't just functional, but a joy to use.
-				</p>
-			</div>
-			<div class="flex gap-4 items-stretch justify-between">
-				<!-- <div class="flex gap-4">
-					<button class="bg-blue-600 text-blue-100 px-6"
-						>GitHub</button
-					>
-					<div class="flex flex-col text-sm text-foreground-500">
-						v2.304 <br /> Release notes
-					</div>
-				</div> -->
-				<div class="flex gap-4">
-					<LikeButton client:load/>
+			<div class="flex flex-col gap-6">
+				<div>
+					<p class="text-xl text-foreground-500">
+						Hi, I'm Marcus Felix. I bridge the gap between complex code and human experience. As a developer with a foundation in design, I use empathy and purpose to guide my technical skills, creating tools that aren't just functional, but a joy to use.
+					</p>
 				</div>
-				
+				<div class="flex gap-4 items-stretch justify-between">
+					<div class="flex gap-4">
+						<LikeButton client:load/>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="grid grid-cols-1 md:grid-cols-4 border gap-px border-foreground-200 bg-foreground-200 rounded-xl overflow-hidden">
-				<GridCell
-					index={1}
-					title="Muun GmbH"
-					subtitle="Work"
-					url="https://muun.studio"
-				/>
-				<GridCell
-					index={2}	
-					title="memoria"
-					subtitle="Side project"
-					class="md:col-span-2" 
-				/>
-				<GridCell
-					index={3}
-					title="Steely Dan"
-					subtitle="Listening"
-				/>
-				<GridCell
-					index={4}
-					title="Agent Barney"
-					subtitle="Side project"
-				/>
-				<GridCell
-					index={5}
-					title="Fluent Forever"
-					subtitle="Reading"
-					url="https://hardcover.app/books/fluent-forever"
-					
-				/>
-				<GridCell
-					index={6}
-					title="German A2"
-					subtitle="Learning"
-				/>
-				
-				<GridCell
-					index={7}
-					title="Hytale"
-					subtitle="Gaming"
-					url="https://hytale.com/"
-				/>
+			
+			<div>
+				<div class="grid grid-cols-1 md:grid-cols-4 border gap-px border-foreground-200 bg-foreground-200 rounded-xl overflow-hidden">
+					<GridCell
+						index={1}
+						title="Muun GmbH"
+						subtitle="Work"
+						url="https://muun.studio"
+					/>
+					<GridCell
+						index={2}	
+						title="memoria"
+						subtitle="Side project"
+						class="md:col-span-2" 
+					/>
+					<GridCell
+						index={3}
+						title="Steely Dan"
+						subtitle="Listening"
+					/>
+					<GridCell
+						index={4}
+						title="Agent Barney"
+						subtitle="Side project"
+					/>
+					<GridCell
+						index={5}
+						title="Fluent Forever"
+						subtitle="Reading"
+						url="https://hardcover.app/books/fluent-forever"
+					/>
+					<GridCell
+						index={6}
+						title="German A2"
+						subtitle="Learning"
+					/>
+					<GridCell
+						index={7}
+						title="Hytale"
+						subtitle="Gaming"
+						url="https://hytale.com/"
+					/>
+				</div>
 			</div>
-		</div>
 
-		<div>
-			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{posts.map((item, i) => <Post 
-					index={i + 1}
-					image={item.frontmatter.image.url} 
-					slug={(item.file.split("/").at(-1) as string).replace(".md", "")} 
-					title={item.frontmatter.title}
-					url={`/articles/${(item.file.split("/").at(-1) as string).replace(".md", "")}`}
-				/>)}
+			<div>
+				<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					{posts.map((item, i) => <Post 
+						index={i + 1}
+						title={item.frontmatter.title}
+						url={`/articles/${(item.file.split("/").at(-1) as string).replace(".md", "")}`}
+					/>)}
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</div>
 </Layout>

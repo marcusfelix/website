@@ -1,95 +1,55 @@
 @import "tailwindcss";
-
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --color-background: oklch(98.8% 0.003 106.5);
-    --color-foreground-900: oklch(20.8% 0.042 265.755);
-    --color-foreground-500: oklch(55.4% 0.046 257.417);
-    --color-foreground-200: oklch(92.9% 0.013 255.508);
-    --font-mono: 'JetBrains Mono Variable', monospace;
-    --tw-prose-code: var(--color-pink-900);
-
-    --color-like-active-text: oklch(60% 0.2 15);
-    --color-like-active-bg: oklch(92% 0.08 15);
-    --color-like-hover-text: oklch(45% 0.2 15);
-    --color-like-hover-bg: oklch(85% 0.15 15);
+  --color-background: var(--background);
+  --color-foreground-900: var(--foreground-900);
+  --color-foreground-500: var(--foreground-500);
+  --color-foreground-200: var(--foreground-200);
+  --color-like-active-text: var(--like-active-text);
+  --color-like-active-bg: var(--like-active-bg);
+  --color-like-hover-text: var(--like-hover-text);
+  --color-like-hover-bg: var(--like-hover-bg);
+  --font-mono: "JetBrains Mono Variable", monospace;
+  
+  --tw-prose-body: var(--foreground-900);
+  --tw-prose-headings: var(--foreground-900);
+  --tw-prose-lead: var(--foreground-500);
+  --tw-prose-links: var(--foreground-900);
+  --tw-prose-bold: var(--foreground-900);
+  --tw-prose-counters: var(--foreground-500);
+  --tw-prose-bullets: var(--foreground-200);
+  --tw-prose-hr: var(--foreground-200);
+  --tw-prose-quotes: var(--foreground-900);
+  --tw-prose-quote-borders: var(--foreground-200);
+  --tw-prose-captions: var(--foreground-500);
+  --tw-prose-th-borders: var(--foreground-200);
+  --tw-prose-td-borders: var(--foreground-200);
+  --tw-prose-code: var(--prose-code);
+  --tw-prose-pre-code: var(--pre-code);
+  --tw-prose-pre-bg: var(--pre-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-    @theme {
-        --color-background: oklch(15.5% 0.02 265.7);
-        --color-foreground-900: oklch(96% 0.01 265.7);
-        --color-foreground-500: oklch(75% 0.03 265.7);
-        --color-foreground-200: oklch(28% 0.03 265.7);
-        --tw-prose-code: var(--color-pink-200);
-
-        --color-like-active-text: oklch(70% 0.15 15);
-        --color-like-active-bg: oklch(20% 0.1 15);
-        --color-like-hover-text: oklch(80% 0.1 15);
-        --color-like-hover-bg: oklch(25% 0.1 15);
-    }
-}
-
-:root.dark {
-    --color-background: oklch(15.5% 0.02 265.7);
-    --color-foreground-900: oklch(96% 0.01 265.7);
-    --color-foreground-500: oklch(75% 0.03 265.7);
-    --color-foreground-200: oklch(28% 0.03 265.7);
-    --tw-prose-code: var(--color-pink-200);
-
-    --color-like-active-text: oklch(70% 0.15 15);
-    --color-like-active-bg: oklch(20% 0.1 15);
-    --color-like-hover-text: oklch(80% 0.1 15);
-    --color-like-hover-bg: oklch(25% 0.1 15);
-}
-
-:root.light {
-    --color-background: oklch(98.8% 0.003 106.5);
-    --color-foreground-900: oklch(20.8% 0.042 265.755);
-    --color-foreground-500: oklch(55.4% 0.046 257.417);
-    --color-foreground-200: oklch(92.9% 0.013 255.508);
-    --tw-prose-code: var(--color-pink-900);
-
-    --color-like-active-text: oklch(60% 0.2 15);
-    --color-like-active-bg: oklch(92% 0.08 15);
-    --color-like-hover-text: oklch(45% 0.2 15);
-    --color-like-hover-bg: oklch(85% 0.15 15);
-}
-
-/* Explicit prose overrides */
-.prose {
-    --tw-prose-body: var(--color-foreground-900);
-    --tw-prose-headings: var(--color-foreground-900);
-    --tw-prose-lead: var(--color-foreground-500);
-    --tw-prose-links: var(--color-foreground-900);
-    --tw-prose-bold: var(--color-foreground-900);
-    --tw-prose-counters: var(--color-foreground-500);
-    --tw-prose-bullets: var(--color-foreground-200);
-    --tw-prose-hr: var(--color-foreground-200);
-    --tw-prose-quotes: var(--color-foreground-900);
-    --tw-prose-quote-borders: var(--color-foreground-200);
-    --tw-prose-captions: var(--color-foreground-500);
-    --tw-prose-pre-code: var(--color-foreground-200);
-    --tw-prose-pre-bg: var(--color-foreground-900);
-    --tw-prose-th-borders: var(--color-foreground-200);
-    --tw-prose-td-borders: var(--color-foreground-200);
-}
-
-.dark .prose {
-    --tw-prose-body: var(--color-foreground-900);
-    --tw-prose-headings: var(--color-foreground-900);
-    --tw-prose-lead: var(--color-foreground-500);
-    --tw-prose-pre-code: var(--color-foreground-900);
-    --tw-prose-pre-bg: var(--color-foreground-200);
+:root {
+  --background: oklch(98.8% 0.003 106.5);
+  --foreground-900: oklch(20.8% 0.042 265.755);
+  --foreground-500: oklch(55.4% 0.046 257.417);
+  --foreground-200: oklch(92.9% 0.013 255.508);
+  --like-active-text: oklch(60% 0.2 15);
+  --like-active-bg: oklch(92% 0.08 15);
+  --like-hover-text: oklch(45% 0.2 15);
+  --like-hover-bg: oklch(85% 0.15 15);
+  --prose-code: var(--color-pink-900);
+  --pre-code: var(--foreground-200);
+  --pre-bg: var(--foreground-900);
 }
 
 .blink {
-    animation: blink 1s step-start infinite;
+  animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
+  50% {
+    opacity: 0;
+  }
 }
