@@ -19,24 +19,13 @@ const posts = await Astro.glob('./articles/*.md');
 		<div class="flex flex-col gap-6">
 			<div>
 				<p class="text-xl text-foreground-500">
-					Hi, I'm Marcus Felix. I'm a software developer with a deep passion for design － Letting
-					human factors, purpose, and empathy guide my technical skills to
-					create digital products that are simple and enjoyable to use.
+					Hi, I’m Marcus Felix. I develop digital products through the lens of design. By prioritizing human factors and purpose, I transform complex technical requirements into simple, intuitive experiences.
 				</p>
 			</div>
 			<div class="flex gap-4 items-stretch justify-between">
-				<!-- <div class="flex gap-4">
-					<button class="bg-blue-600 text-blue-100 px-6"
-						>GitHub</button
-					>
-					<div class="flex flex-col text-sm text-foreground-500">
-						v2.304 <br /> Release notes
-					</div>
-				</div> -->
 				<div class="flex gap-4">
 					<LikeButton client:load/>
 				</div>
-				
 			</div>
 		</div>
 		<div>
