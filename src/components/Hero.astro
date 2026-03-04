@@ -1,0 +1,135 @@
+---
+// Hero component ported to Astro + Vanilla JS
+---
+
+<div class="flex flex-col md:flex-row gap-8 items-center w-full" id="hero-container">
+    <div class="w-full md:w-1/2">
+        <h1 class="flex-1 font-bold text-6xl md:text-8xl text-foreground-900">
+            <span id="hero-text"></span><span id="hero-cursor" class="blink">_</span>
+        </h1>
+    </div>
+    <div class="flex gap-4 flex-col-reverse md:flex-col w-full md:w-1/2 min-w-0">
+        <slot />
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-4 px-2">
+            <button 
+                type="button" 
+                class="flex gap-2 items-center cursor-pointer text-sm disabled:cursor-not-allowed disabled:opacity-50" 
+                id="hero-rerun-btn"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                </svg>
+                Re-run
+            </button>
+            <span id="hero-starter-badge" class="hidden text-xs text-foreground-500 bg-foreground-200 px-2 py-1 rounded-full">
+                parrot.<span class="text-purple-500 dark:text-purple-400">complete</span>(<span class="text-yellow-700 dark:text-yellow-600" id="hero-current-starter">""</span>)
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    import { StochasticParrot } from "../includes/stochasticParrot";
+
+    const trainData = [
+        "Design oriented code is how you develop software with purpose",
+        "Hi, I'm Marcus. I'm a software developer with a passion for technology and design.",
+        "Tutorial on how to destroy the planet.",
+        "Why are creative people so weird?",
+        "Memoria is a side project about photo sharing",
+        "Agent Barney is a side project for automation.",
+        "Fluent Forever is a book about learning languages.",
+        "Hytale is an upcoming game with infinite possibilities.",
+        "Steely Dan fusion rock with jazz",
+        "We build something together using design and technology.",
+        "Simple and enjoyable to use digital products."
+    ];
+
+    const getFirstThreeWords = (str: string) => {
+        return str.split(" ").slice(0, 2).join(" ");
+    };
+
+    const parrot = new StochasticParrot();
+    parrot.trainAll(trainData);
+
+    const textEl = document.getElementById("hero-text");
+    const cursorEl = document.getElementById("hero-cursor");
+    const rerunBtn = document.getElementById("hero-rerun-btn") as HTMLButtonElement | null;
+    const starterBadge = document.getElementById("hero-starter-badge");
+    const currentStarterEl = document.getElementById("hero-current-starter");
+
+    let currentText = "";
+    let isTyping = false;
+    let starterIndex = 0;
+
+    const setStarterBadge = (starter: string) => {
+        if (!currentStarterEl || !starterBadge) return;
+        if (starter) {
+            currentStarterEl.textContent = `"${starter}"`;
+            starterBadge.classList.remove("hidden");
+        } else {
+            starterBadge.classList.add("hidden");
+        }
+    };
+
+    const type = async (newText: string) => {
+        isTyping = true;
+        if (cursorEl) cursorEl.classList.remove("blink");
+        if (rerunBtn) rerunBtn.disabled = true;
+
+        for (let i = 0; i <= newText.length; i++) {
+            await new Promise(resolve => setTimeout(resolve, 60));
+            currentText = newText.substring(0, i);
+            if (textEl) textEl.textContent = currentText;
+        }
+
+        isTyping = false;
+        if (cursorEl) cursorEl.classList.add("blink");
+        if (rerunBtn) rerunBtn.disabled = false;
+    };
+
+    const clear = async () => {
+        isTyping = true;
+        if (cursorEl) cursorEl.classList.remove("blink");
+        if (rerunBtn) rerunBtn.disabled = true;
+
+        const originalText = currentText;
+        for (let i = originalText.length; i >= 0; i--) {
+            await new Promise(resolve => setTimeout(resolve, 20));
+            currentText = originalText.substring(0, i);
+            if (textEl) textEl.textContent = currentText;
+        }
+
+        isTyping = false;
+        if (cursorEl) cursorEl.classList.add("blink");
+        if (rerunBtn) rerunBtn.disabled = false;
+    };
+
+    const handleRunCode = async () => {
+        if (isTyping) return;
+        
+        const nextIndex = starterIndex % trainData.length;
+        const starter = getFirstThreeWords(trainData[nextIndex]);
+        
+        setStarterBadge(starter);
+        const prediction = parrot.complete(starter, 5);
+        
+        await clear();
+        await type(prediction);
+        
+        starterIndex = nextIndex + 1;
+    };
+
+    if (rerunBtn) {
+        rerunBtn.addEventListener("click", handleRunCode);
+    }
+
+    // Initial load: start with the first starter
+    const firstStarter = getFirstThreeWords(trainData[0]);
+    setStarterBadge(firstStarter);
+    type(parrot.complete(firstStarter, 3)).then(() => {
+        starterIndex = 1;
+    });
+</script>
