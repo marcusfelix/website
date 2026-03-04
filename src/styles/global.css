@@ -44,6 +44,20 @@
   --pre-bg: var(--foreground-900);
 }
 
+.dark {
+  --background: oklch(15.8% 0.02 265);
+  --foreground-900: oklch(98.8% 0.003 106.5);
+  --foreground-500: oklch(75.4% 0.02 265);
+  --foreground-200: oklch(30.9% 0.02 265);
+  --like-active-text: oklch(80% 0.15 15);
+  --like-active-bg: oklch(35% 0.1 15);
+  --like-hover-text: oklch(90% 0.1 15);
+  --like-hover-bg: oklch(25% 0.1 15);
+  --prose-code: oklch(85% 0.1 330);
+  --pre-code: var(--foreground-900);
+  --pre-bg: var(--foreground-200);
+}
+
 .blink {
   animation: blink 1s step-start infinite;
 }
