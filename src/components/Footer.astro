@@ -1,0 +1,18 @@
+---
+import Icon from "../assets/favicon.svg";
+---
+
+<footer class="container mx-auto max-w-7xl px-4 pb-4">
+    <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-col gap-4">
+            <img src={Icon.src} class="w-10 h-10 grayscale" />
+            <p class="text-sm text-foreground-500">
+                © {new Date().getFullYear()} Marcus Felix
+            </p>
+        </div>
+        <div class="flex flex-col gap-4 justify-end items-end">
+            <a href="https://github.com/marcusfelix" class="text-sm text-foreground-500">GitHub</a>
+            <a href="https://www.linkedin.com/in/marcusvfelix/" class="text-sm text-foreground-500">LinkedIn</a>
+        </div>
+    </div>
+</footer>

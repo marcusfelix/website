@@ -1,237 +1,89 @@
 ---
-import Card from '../components/card.astro';
-import Post from '../components/post.astro';
-import Project from '../components/project.astro';
-import Website from '../layouts/website.astro';
-import { IconArrowDownRight, IconCircleSquare, IconChartDonut2, IconBrandSupabase, IconServer, IconBrandFirebase, IconDeviceTablet, IconPointer, IconPencil, IconEdit, IconWorld, IconDeviceDesktop, IconBrandApple, IconBrandAndroid } from '@tabler/icons-preact';
+import Layout from "../layouts/Layout.astro";
+import GridCell from "../components/GridCell.astro";
+import Post from "../components/Post.astro";
+import LikeButton from "../components/LikeButton";
+import Hero from "../components/Hero.astro";
+import CodeWindow from "../components/CodeWindow.astro";
 
 const posts = await Astro.glob('./articles/*.md');
 ---
 
-<Website title="Marcus Felix">
-	<main class="container mx-auto px-4">
-		<div class="h-20"></div>
-		<div class="flex flex-col gap-10">
-			<div class="flex flex-col items-start md:flex-row gap-4">
-				<!-- <a target="_blank" class="flex items-center gap-4 bg-green-100 text-green-700 px-2 py-2 pr-6 rounded-full text-lg">
-					<span class="flex items-center justify-center w-7 h-7">
-						<span class="bg-green-500 w-4 h-4 rounded-full animate-ping absolute"></span>
-						<span class="bg-green-500 w-3 h-3 rounded-full absolute"></span>
-					</span>
-					Available to work
-				</a> -->
-				<a target="_blank" class="flex items-center gap-4 bg-red-100 text-red-700 px-2 py-2 pr-6 rounded-full text-lg">
-					<span class="flex items-center justify-center w-7 h-7">
-						<span class="bg-red-500 w-4 h-4 rounded-full animate-ping absolute"></span>
-						<span class="bg-red-500 w-3 h-3 rounded-full absolute"></span>
-					</span>
-					Unavailable to work
-				</a>
+<Layout>
+	<section class="flex flex-col gap-20">
+		<main class="flex flex-col justify-center">
+			<Hero>
+				<CodeWindow />
+			</Hero>
+		</main>
+		<div class="flex flex-col gap-6">
+			<div>
+				<p class="text-xl text-foreground-500">
+					Hi, I’m Marcus Felix. I develop digital products through the lens of design. By prioritizing human factors and purpose, I transform complex technical requirements into simple, intuitive experiences.
+				</p>
 			</div>
-			<h1 class="text-6xl md:text-7xl md:max-w-6xl text-black leading-[72px] md:leading-[82px]">Software developer & designer crafting digital experiences for web and mobile</h1>
+			<div class="flex gap-4 items-stretch justify-between">
+				<div class="flex gap-4">
+					<LikeButton client:load/>
+				</div>
+			</div>
 		</div>
-	</main>
-	<div class="h-32"></div>
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col md:flex-row gap-8">
-			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Articles</span>
-			</nav>
-			<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-6">
-				{posts.map((item) => <Post 
-					image={item.frontmatter.image.url} 
-					slug={(item.file.split("/").at(-1) as string).replace(".md", "")} 
+		<div>
+			<div class="grid grid-cols-1 md:grid-cols-4 border gap-px border-foreground-200 bg-foreground-200 rounded-xl overflow-hidden">
+				<GridCell
+					index={1}
+					title="Muun GmbH"
+					subtitle="Work"
+					url="https://muun.studio"
+				/>
+				<GridCell
+					index={2}	
+					title="memoria"
+					subtitle="Side project"
+					class="md:col-span-2" 
+				/>
+				<GridCell
+					index={3}
+					title="Steely Dan"
+					subtitle="Listening"
+				/>
+				<GridCell
+					index={4}
+					title="Barney"
+					subtitle="Side project"
+					url="https://github.com/marcusfelix/barney"
+				/>
+				<GridCell
+					index={5}
+					title="Fluent Forever"
+					subtitle="Reading"
+					url="https://hardcover.app/books/fluent-forever"
+					
+				/>
+				<GridCell
+					index={6}
+					title="German A2"
+					subtitle="Learning"
+				/>
+				
+				<GridCell
+					index={7}
+					title="Hytale"
+					subtitle="Gaming"
+					url="https://hytale.com/"
+				/>
+			</div>
+		</div>
+
+		<div>
+			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{posts.map((item, i) => <Post 
+					index={i + 1}
 					title={item.frontmatter.title}
+					url={`/articles/${(item.file.split("/").at(-1) as string).replace(".md", "")}`}
 				/>)}
 			</div>
 		</div>
 	</section>
-	<div class="h-32"></div>
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col md:flex-row gap-8">
-			<nav class="md:h-16 flex text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Work</span>
-			</nav>
-			<div class="w-full flex flex-col">
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2025</span>
-					<h3 class="flex-1 truncate">Muun</h3>
-					<a href="https://muun.studio" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2024</span>
-					<h3 class="flex-1 truncate">GoodBytz</h3>
-					<a href="https://goodbytz.com" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2023</span>
-					<h3 class="flex-1 truncate">Bit Electronics</h3>
-					<a href="https://apps.apple.com/us/app/bit-electronics/id6450903735" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.bit.electronics.app" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2022</span>
-					<h3 class="flex-1 truncate">Deplōid Studio</h3>
-					<a href="https://deploid-website.pages.dev/" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2021</span>
-					<h3 class="flex-1 truncate">Uniman</h3>
-					<a href="https://apps.apple.com/us/app/uniman/id1582471539" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
-					<a href="https://play.google.com/store/apps/details?id=com.samhaus.uniman.app" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2019</span>
-					<h3 class="flex-1 truncate">Eonix</h3>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2019</span>
-					<h3 class="flex-1 truncate">2E Lighting</h3>
-					<a href="https://apps.apple.com/br/app/2e-lighting-2-1/id1492108030" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.disac.cliente.cliente" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2019</span>
-					<h3 class="flex-1 truncate">2E Admin</h3>
-					<a href="https://apps.apple.com/br/app/2e-admin-2-2/id1492100155" target="_blank" class="hover:text-black text-zinc-400"><IconBrandApple/></a>
-					<a href="https://play.google.com/store/apps/details?id=br.com.disac.admin" target="_blank" class="hover:text-black text-zinc-400"><IconBrandAndroid/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2018</span>
-					<h3 class="flex-1 truncate">Hommax</h3>
-					<a href="https://hommax.com.br/" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2018</span>
-					<h3 class="flex-1 truncate">Yaaas</h3>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2018</span>
-					<h3 class="flex-1 truncate">FTNZ</h3>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2017</span>
-					<h3 class="flex-1 truncate">Mathtronics</h3>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2016</span>
-					<h3 class="flex-1 truncate">Samhaus</h3>
-					<a href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2014</span>
-					<h3 class="flex-1 truncate">Bridge</h3>
-					<a href="https://www.behance.net/gallery/48298489/Bridge-Audio-Video" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-zinc-400 cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2013</span>
-					<h3 class="flex-1 truncate">Guia América</h3>
-					<a href="https://www.behance.net/gallery/48397373/Guia-Amrica" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2011</span>
-					<h3 class="flex-1 truncate">Accon</h3>
-					<a href="https://www.accon.com.br" target="_blank" class="hover:text-black text-zinc-400"><IconWorld/></a>
-				</div>
-				<hr/>
-				<div class="h-16 flex flex-row items-center gap-4 list-none text-2xl text-black cursor-pointer">
-					<span class="bg-zinc-200 text-zinc-400 rounded-lg px-2 py-1">2010</span>
-					<h3 class="flex-1 truncate">Infomedic</h3>
-				</div>
-			</div>
-		</div>
-	</section>
-	<div class="h-32"></div>
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col md:flex-row gap-8">
-			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Expertise</span>
-			</nav>
-			<div class="w-full grid grid-cols-1 xl:grid-cols-4 gap-x-4 gap-y-6">
-				<div class="px-1 flex gap-4 items-center text-lg"><IconWorld/> Landing pages</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconDeviceTablet/> Mobile apps</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconPointer/> Web apps</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconDeviceDesktop/> Desktop apps</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconChartDonut2/> Dashboards</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconServer/> Custom backend</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconBrandFirebase/> Firebase</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconBrandSupabase/> Supabase</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconEdit/> Branding</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconCircleSquare/> Icons</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconDeviceTablet/> Mockups</div>
-				<div class="px-1 flex gap-4 items-center text-lg"><IconPencil/> Illustrations</div>
-			</div>
-		</div>
-	</section>
-	<div class="h-32"></div>
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col gap-8">
-			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/>Open Source</span>
-			</nav>
-			<div class="w-full grid grid-cols-1 xl:grid-cols-4 gap-4">
-				<Project
-					url="https://github.com/marcusfelix/caster"
-					name="Caster"
-					stack="Flutter, Firebase"
-				/>
-				<Project
-					url="https://github.com/marcusfelix/oscorp"
-					name="OSCORP"
-					stack="Flutter, Firebase"
-				/>
-				<Project
-					url="https://github.com/marcusfelix/hausmeister"
-					name="Hausmeister"
-					stack="Flutter, Firebase"
-				/>
-				<Project
-					url="https://github.com/marcusfelix/full-stack-scheduler"
-					name="Scheduler"
-					stack="React, Node, Prisma"
-				/>
-				<Project
-					url="https://github.com/marcusfelix/duck-calc"
-					name="Duck Calc"
-					stack="React Native"
-				/>
-				<Project
-					url="https://github.com/marcusfelix/roboto"
-					name="Roboto Bot"
-					stack="Go"
-				/>
-			</div>
-		</div>
-	</section>
-	<div class="h-32"></div>
-	<a name="about"></a>
-	<section class="container mx-auto px-4">
-		<div class="flex flex-col md:flex-row gap-8">
-			<nav class="text-2xl w-full max-w-sm">
-				<span class="flex items-center gap-4"><IconArrowDownRight size={28}/> About me</span>
-			</nav>
-			<div class="w-full flex flex-col gap-6">
-				<div class="text-lg flex flex-col gap-4">
-					<p>I'm a Brazilian software developer living in Hamburg, Germany, with over 14 years of experience in web, mobile, full stack development and design.</p>
-					<p>Previously, I co-founded a startup called Samhaus where we created the <a class="text-cyan-600" href="https://www.tecmundo.com.br/apps/104627-leve-predio-bolso-app-ideal-administracao-condominios.htm" target="_blank">Super Prédio</a> mobile app. I worked for 7 years as a Frontend Developer for a software house creating different web and mobile apps. Among many customers, Pizza Hut Delivery (Brazil) and Dominos (Brazil) stand out. Check my entire work experience on my <a class="text-cyan-600" href="https://www.linkedin.com/in/marcusvfelix/" target="_blank">LinkedIn profile</a>.</p>
-					<p>My current tech stack includes React.js, Flutter, Node.js, Golang and more.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-</Website>
+</Layout>

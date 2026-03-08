@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground-900: var(--foreground-900);
+  --color-foreground-500: var(--foreground-500);
+  --color-foreground-200: var(--foreground-200);
+  --color-like-active-text: var(--like-active-text);
+  --color-like-active-bg: var(--like-active-bg);
+  --color-like-hover-text: var(--like-hover-text);
+  --color-like-hover-bg: var(--like-hover-bg);
+  --font-mono: "JetBrains Mono Variable", monospace;
+  
+  --tw-prose-body: var(--foreground-900);
+  --tw-prose-headings: var(--foreground-900);
+  --tw-prose-lead: var(--foreground-500);
+  --tw-prose-links: var(--foreground-900);
+  --tw-prose-bold: var(--foreground-900);
+  --tw-prose-counters: var(--foreground-500);
+  --tw-prose-bullets: var(--foreground-200);
+  --tw-prose-hr: var(--foreground-200);
+  --tw-prose-quotes: var(--foreground-900);
+  --tw-prose-quote-borders: var(--foreground-200);
+  --tw-prose-captions: var(--foreground-500);
+  --tw-prose-th-borders: var(--foreground-200);
+  --tw-prose-td-borders: var(--foreground-200);
+  --tw-prose-code: var(--prose-code);
+  --tw-prose-pre-code: var(--pre-code);
+  --tw-prose-pre-bg: var(--pre-bg);
+}
+
+:root {
+  --background: oklch(98.8% 0.003 106.5);
+  --foreground-900: oklch(20.8% 0.042 265.755);
+  --foreground-500: oklch(55.4% 0.046 257.417);
+  --foreground-200: oklch(92.9% 0.013 255.508);
+  --like-active-text: oklch(60% 0.2 15);
+  --like-active-bg: oklch(92% 0.08 15);
+  --like-hover-text: oklch(45% 0.2 15);
+  --like-hover-bg: oklch(85% 0.15 15);
+  --prose-code: var(--color-pink-900);
+  --pre-code: var(--foreground-200);
+  --pre-bg: var(--foreground-900);
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

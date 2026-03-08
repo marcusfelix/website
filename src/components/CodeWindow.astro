@@ -1,0 +1,52 @@
+---
+import { Code } from 'astro:components';
+
+const code = `class StochasticParrot {
+  data = {};
+  train(text) {
+    const words = text.toLowerCase().split(/\\s+/);
+    words.forEach((w, i) => {
+      if (words[i + 1]) (this.data[w] ??= []).push(words[i + 1]);
+    });
+  }
+  complete(str, len = 5) {
+    let res = str.toLowerCase().split(/\\s+/);
+    while (len--) {
+      const next = this.data[res.at(-1)];
+      if (!next) break;
+      res.push(next[Math.floor(Math.random() * next.length)]);
+    }
+    return res.join(" ");
+  }
+}`;
+---
+
+<div class="flex flex-col w-full rounded-xl overflow-hidden bg-background min-w-0">
+  <pre class="astro-code github-dark text-sm p-4" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> StochasticParrot</span><span style="color:#E1E4E8"> &#123;</span></span>
+<span class="line"><span style="color:#FFAB70">  data</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> &#123;&#125;;</span></span>
+<span class="line"><span style="color:#B392F0">  train</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">text</span><span style="color:#E1E4E8">) &#123;</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> words</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> text.</span><span style="color:#B392F0">toLowerCase</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    words.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">w</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">i</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> &#123;</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (words[i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">]) (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.data[w] </span><span style="color:#F97583">??=</span><span style="color:#E1E4E8"> []).</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(words[i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#125;);</span></span>
+<span class="line"><span style="color:#E1E4E8">  &#125;</span></span>
+<span class="line"><span style="color:#B392F0">  complete</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">str</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">len</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 5</span><span style="color:#E1E4E8">) &#123;</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> res </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> str.</span><span style="color:#B392F0">toLowerCase</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (len</span><span style="color:#F97583">--</span><span style="color:#E1E4E8">) &#123;</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> next</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.data[res.</span><span style="color:#B392F0">at</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)];</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">next) </span><span style="color:#F97583">break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      res.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(next[Math.</span><span style="color:#B392F0">floor</span><span style="color:#E1E4E8">(Math.</span><span style="color:#B392F0">random</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> next.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">)]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#125;</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">" "</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  &#125;</span></span>
+<span class="line"><span style="color:#E1E4E8">&#125;</span></span></code></pre>
+</div>
+
+<style is:global>
+  /* Ensure pre blocks don't wrap and allow scrolling */
+  pre {
+    white-space: pre !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+  }
+</style>
