@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    <section class="flex flex-col gap-20 py-20">
+    <section class="flex flex-col gap-20">
         <div class="container mx-auto">
             <img
                 src={frontmatter.image.url}
@@ -18,7 +18,7 @@ const { frontmatter } = Astro.props;
                 class="w-full"
             />
         </div>
-        <article class="flex flex-col gap-12 mx-auto container max-w-3xl px-4">
+        <article class="flex flex-col gap-12 mx-auto container max-w-3xl">
             <div class="flex flex-col gap-4">
                 <h1 class="md:text-6xl text-5xl font-bold tracking-tight">
                     {frontmatter.title}
