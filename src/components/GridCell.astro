@@ -14,7 +14,7 @@ const props = Astro.props;
         <h4 class="text-foreground-500 text-sm uppercase">{props.subtitle}</h4>
         <p class="text-lg">{props.title}</p>
         <div>
-            {props.url && <a href={props.url} class="">
+            {props.url && <a href={props.url} target="_blank" rel="noopener noreferrer" class="">
                 <IconWorld size={20} class="text-foreground-200 group-hover:text-foreground-500"/>
             </a>}
         </div>
