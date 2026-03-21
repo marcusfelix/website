@@ -44,7 +44,6 @@ export default function LikeButton() {
                 // In case POST just returns new count, assume success means they've liked
                 setHasLiked(true);
             }
-            console.log("Current like count:", data.count);
         }
         catch (error) {
             console.error("Error liking:", error);
@@ -62,7 +61,7 @@ export default function LikeButton() {
                 {working ? <IconLoader2 size={20} class="animate-spin" /> : <IconHeart size={20} fill={hasLiked ? "currentColor" : "none"} />}
             </button>
             <div class="text-sm text-foreground-500">
-                <Counter count={hasLiked ? likeCount - 1 : likeCount}/> people {hasLiked ? "+ you" : ""} <br />liked this website
+                <Counter count={likeCount}/> {likeCount === 1 ? "person" : "people"}{hasLiked ? " + you" : ""} <br />liked this website
             </div>
         </>
     );
