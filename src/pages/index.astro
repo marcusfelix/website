@@ -19,7 +19,7 @@ const posts = await Astro.glob('./articles/*.md');
 		<div class="flex flex-col gap-6">
 			<div>
 				<p class="text-xl text-foreground-500">
-					Hi, I’m Marcus Felix. I develop digital products through the lens of design. By prioritizing human factors and purpose, I transform complex technical requirements into simple, intuitive experiences.
+					Hi, I’m Marcus Felix. I develop digital products, from design to implementation. More important than building is to know what to build, and build it well. I write about my learnings and share my projects here.
 				</p>
 			</div>
 			<div class="flex gap-4 items-stretch justify-between">
@@ -39,8 +39,7 @@ const posts = await Astro.glob('./articles/*.md');
 				<GridCell
 					index={2}	
 					title="memoria"
-					subtitle="Side project"
-					class="md:col-span-2" 
+					subtitle="Side project" 
 				/>
 				<GridCell
 					index={3}
@@ -50,29 +49,43 @@ const posts = await Astro.glob('./articles/*.md');
 				/>
 				<GridCell
 					index={4}
-					title="Barney"
-					subtitle="Side project"
-					url="https://github.com/marcusfelix/barney"
+					title="German A2"
+					subtitle="Learning"
+					url="https://www.vhs-hamburg.de/"
 				/>
 				<GridCell
 					index={5}
+					title="Dracula"
+					subtitle="Side project"
+					url="https://github.com/marcusfelix/dracula"
+				/>
+				<GridCell
+					index={6}
+					title="Barney"
+					subtitle="Side project"
+					url="https://github.com/marcusfelix/barney"
+					class="md:col-span-2"
+				/>
+				<GridCell
+					index={7}
 					title="Fluent Forever"
 					subtitle="Reading"
 					url="https://hardcover.app/books/fluent-forever"
 					
 				/>
 				<GridCell
-					index={6}
-					title="German A2"
-					subtitle="Learning"
-					url="https://www.vhs-hamburg.de/"
-				/>
-				
-				<GridCell
-					index={7}
+					index={8}
 					title="Hytale"
 					subtitle="Gaming"
 					url="https://hytale.com/"
+					class="md:col-span-2"
+				/>
+				<GridCell
+					index={8}
+					title="Valheim"
+					subtitle="Gaming"
+					class="md:col-span-2"
+					url="https://valheim.com/"
 				/>
 			</div>
 		</div>
