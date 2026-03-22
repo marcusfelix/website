@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # Cloudflare wrangler
 .wrangler/
+
+# Barney 
+.barney
+barney
