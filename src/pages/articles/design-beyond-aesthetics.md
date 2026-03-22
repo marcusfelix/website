@@ -8,6 +8,7 @@ layout: '../../layouts/Article.astro'
 image:
   url: '/assets/design-beyond-aesthetics.webp'
   alt: 'Design Beyond Aesthetics'
+  thumb: '/assets/design-beyond-aesthetics-thumb.webp'
 ---
 
 _Text by Maurício Azeredo, Adjunct Professor at PUC Goiás._

@@ -92,11 +92,12 @@ const posts = await Astro.glob('./articles/*.md');
 
 		<div>
 			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{posts.map((item, i) => <Post 
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+				{posts.map((item, i) => <Post
 					index={i + 1}
 					title={item.frontmatter.title}
 					url={`/articles/${(item.file.split("/").at(-1) as string).replace(".md", "")}`}
+					image={item.frontmatter.image.thumb ?? item.frontmatter.image.url}
 				/>)}
 			</div>
 		</div>

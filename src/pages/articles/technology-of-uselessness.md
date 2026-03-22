@@ -8,6 +8,7 @@ layout: '../../layouts/Article.astro'
 image:
   url: '/assets/tech-uselessness-hero.webp'
   alt: 'Technology of Uselessness'
+  thumb: '/assets/tech-uselessness-hero-thumb.webp'
 ---
 
 A while back, when electricity was discovered, then controlled and distributed through power grids, a new market of electrical inventions emerged spontaneously in the US. The first and most important was the lightbulb. I imagine the washing machine, radio, fan, drill, and blender followed shortly after, making room for other inventions. It was a revolution.

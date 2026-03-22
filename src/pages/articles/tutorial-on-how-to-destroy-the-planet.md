@@ -6,6 +6,7 @@ author: 'Marcus Felix'
 image:
     url: '/assets/doomsday.jpg'
     alt: 'Doomsday'
+    thumb: '/assets/doomsday-thumb.webp'
 tags: ["sustainability", "space", "science"]
 layout: '../../layouts/Article.astro'
 

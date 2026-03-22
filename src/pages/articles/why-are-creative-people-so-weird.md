@@ -6,6 +6,7 @@ author: 'Marcus Felix'
 image:
     url: '/assets/shirtless-picasso-32.jpg'
     alt: 'Pablo Picasso'
+    thumb: '/assets/shirtless-picasso-32-thumb.webp'
 tags: ["creativity", "inovation", "entrepreneurship", "psychology"]
 layout: '../../layouts/Article.astro'
 ---
