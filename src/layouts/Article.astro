@@ -11,13 +11,15 @@ const { frontmatter } = Astro.props;
 
 <Layout title={frontmatter.title}>
     <section class="flex flex-col gap-20">
-        <div class="container mx-auto">
-            <img
-                src={frontmatter.image.url}
-                alt={frontmatter.image.alt}
-                class="w-full"
-            />
-        </div>
+        {frontmatter.image && (
+            <div class="container mx-auto">
+                <img
+                    src={frontmatter.image.url}
+                    alt={frontmatter.image.alt}
+                    class="w-full"
+                />
+            </div>
+        )}
         <article class="flex flex-col gap-12 mx-auto container max-w-3xl">
             <div class="flex flex-col gap-4">
                 <h1 class="md:text-6xl text-5xl font-bold tracking-tight">
