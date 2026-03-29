@@ -292,7 +292,3 @@ judgment about what to keep, what to change, and what it all means.
 
 The question isn't whether AI helped write this. The question is whether the
 thinking in it is mine. I believe it is.
-
----
-
-_By Marcus Felix · 2025_
