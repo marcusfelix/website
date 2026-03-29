@@ -6,8 +6,8 @@ import LikeButton from "../components/LikeButton";
 import Hero from "../components/Hero.astro";
 import CodeWindow from "../components/CodeWindow.astro";
 
-const postModules = await import.meta.glob<{ frontmatter: { title: string; image: { thumb?: string; url: string } } }>('./articles/*.md', { eager: true });
-const posts = Object.values(postModules);
+const postModules = await import.meta.glob<{ frontmatter: { title: string; created: string; image: { thumb?: string; url: string } } }>('./articles/*.md', { eager: true });
+const posts = Object.values(postModules).sort((a, b) => new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime());
 ---
 
 <Layout>
@@ -93,7 +93,7 @@ const posts = Object.values(postModules);
 
 		<div>
 			<h2 class="text-3xl font-bold text-foreground-900 mb-6">Articles</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+			<div class="grid grid-cols-1 gap-8 md:gap-6">
 				{posts.map((item: any, i: number) => <Post
 					index={i + 1}
 					title={item.frontmatter.title}

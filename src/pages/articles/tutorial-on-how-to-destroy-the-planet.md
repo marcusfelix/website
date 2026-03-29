@@ -4,7 +4,7 @@ created: 2016-06-21
 description: ''
 author: 'Marcus Felix'
 image:
-    url: '/assets/doomsday.jpg'
+    url: '/assets/doomsday.webp'
     alt: 'Doomsday'
     thumb: '/assets/doomsday-thumb.webp'
 tags: ["sustainability", "space", "science"]

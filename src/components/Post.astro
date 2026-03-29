@@ -4,9 +4,9 @@ const props = Astro.props;
 
 <a 
     href={props.url} 
-    class="flex flex-col md:flex-row gap-4 grayscale hover:grayscale-0 transition-all"
+    class="flex flex-row gap-4 grayscale hover:grayscale-0 transition-all"
 >
-    <img src={props.image} alt={props.title} class="h-40 md:h-32 object-cover aspect-video" />
+    <img src={props.image} alt={props.title} class="h-50 md:h-32 object-cover aspect-video" />
     <div class="flex flex-col gap-2 justify-between">
         <div class="flex-row justify-between hidden md:flex">
             <span class="text-lg">{props.index}.</span>
