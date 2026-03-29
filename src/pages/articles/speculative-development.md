@@ -1,6 +1,6 @@
 ---
 title: 'The Spec Is the Product'
-created: 2025-03-29
+created: 2026-03-29
 description: 'Agencies have always sold ideas before selling work. AI just made it embarrassingly cheap to do both at the same time.'
 author: 'Marcus Felix'
 tags: ["ai", "development", "agencies", "speculative-work", "software"]
