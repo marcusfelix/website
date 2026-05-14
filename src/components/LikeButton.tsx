@@ -61,7 +61,7 @@ export default function LikeButton() {
                 {working ? <IconLoader2 size={20} class="animate-spin" /> : <IconHeart size={20} fill={hasLiked ? "currentColor" : "none"} />}
             </button>
             <div class="text-sm text-foreground-500">
-                <Counter count={likeCount}/> {likeCount === 1 ? "person" : "people"}{hasLiked ? " + you" : ""} <br />liked this website
+                <Counter count={hasLiked ? likeCount - 1 : likeCount}/> {(hasLiked ? likeCount - 1 : likeCount) === 1 ? "person" : "people"}{hasLiked ? " + you" : ""} <br />liked this website
             </div>
         </>
     );
